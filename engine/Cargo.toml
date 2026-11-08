@@ -1,0 +1,17 @@
+[package]
+name = "rookery-engine"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "A compact bitboard chess engine with a UCI interface"
+
+[lib]
+name = "rookery_engine"
+path = "src/lib.rs"
+
+[[bin]]
+name = "rookery"
+path = "src/main.rs"
+
+[dependencies]
+web-time = "1.1"

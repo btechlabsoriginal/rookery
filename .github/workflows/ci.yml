@@ -1,0 +1,35 @@
+name: Build and test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  native:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Run engine tests (including perft)
+        run: cargo test --release -p rookery-engine
+      - name: Build UCI executable
+        run: cargo build --release -p rookery-engine
+
+  browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+      - uses: taiki-e/install-action@wasm-pack
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build WASM bindings
+        run: wasm-pack build wasm --release --target web --out-dir ../web/src/wasm-bindings
+      - name: Bundle React site
+        working-directory: web
+        run: |
+          npm install
+          npm run build
