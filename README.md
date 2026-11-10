@@ -17,6 +17,10 @@ A bitboard chess engine in Rust with a UCI command-line executable and a WebAsse
 - [`wasm-pack`](https://rustwasm.github.io/wasm-pack/installer/)
 - Node.js 20+ and npm
 
+## Screenshots
+
+<img width="1440" height="900" alt="Screenshot 2026-11-10 at 19 42 41" src="https://github.com/user-attachments/assets/b322379a-4374-45ee-8304-dbd1a697eeb8" />
+
 ## 1. Native engine (UCI)
 
 From the repository root:
