@@ -1,0 +1,16 @@
+{
+  "name": "rookery-wasm",
+  "type": "module",
+  "version": "0.1.0",
+  "license": "MIT",
+  "files": [
+    "rookery_wasm_bg.wasm",
+    "rookery_wasm.js",
+    "rookery_wasm.d.ts"
+  ],
+  "main": "rookery_wasm.js",
+  "types": "rookery_wasm.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
